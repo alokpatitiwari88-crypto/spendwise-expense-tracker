@@ -1,136 +1,199 @@
-# SpendWise — Personal Expense & Budget Tracker
+# 💳 SpendWise — Personal Expense & Budget Tracker
 
-A full-stack, responsive Personal Expense and Financial Tracker web application built exclusively with **Python, HTML, CSS, and JavaScript**.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/Flask-3.0+-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
+  <img src="https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
+</p>
 
----
-
-## 🌟 Key Features
-
-### 1. 💰 Income & Expense Management
-- Record expenses and incomes with ease.
-- Fields include:
-  - **Title / Description**
-  - **Amount**
-  - **Category** (Groceries, Housing, Dining, Transportation, Health, Salary, Freelance, Investments, etc.)
-  - **Date** (defaults to today's date)
-  - **Payment Method** (Cash, UPI, Credit/Debit Card, Bank Transfer, Other)
-  - **Notes / Receipt info**
-- Inline **Edit** and **Delete** modals with confirmation protection.
-
-### 2. 📊 Visual Analytics & Interactive Charts
-- **Category Breakdown Chart**: Interactive Doughnut chart showing percentage and total spending per category.
-- **Monthly Trend Chart**: Comparative bar chart of monthly Income vs Expenses.
-- **100% Offline Capability**: Includes a local standalone Chart bundle (`static/js/chart.min.js`), requiring zero internet connection at runtime.
-
-### 3. 🎯 Monthly Budget & Spending Velocity Alerts
-- Set a custom target monthly budget.
-- Visual progress bar displays percentage of budget consumed.
-- Automatic status badges:
-  - 🟢 **On Track** (< 80% of budget spent)
-  - 🟡 **Near Limit** (80% - 100% of budget spent)
-  - 🔴 **Over Budget** (> 100% spent)
-
-### 4. 🔍 Instant Search & Multi-Criteria Filtering
-- Real-time search by title, note, or category keyword.
-- Filter by transaction type (**All**, **Expenses Only**, **Income Only**).
-- Filter by specific category.
-- Custom date range filter (**From Date** — **To Date**).
-- Sort options: Newest First, Oldest First, Highest Amount, Lowest Amount.
-- One-click **Clear Filters** reset button.
-
-### 5. 🌍 Multi-Currency & Dark/Light Themes
-- Currency selector supporting **₹ INR**, **$ USD**, **€ EUR**, **£ GBP**, **¥ JPY**, and **C$ CAD**.
-- Currency formatting applies dynamically across all cards, transaction items, and charts.
-- Dark / Light mode toggle with automatic preference persistence in `localStorage`.
-
-### 6. 📥 CSV Export & Demo Data Reset
-- Download all recorded transactions in a spreadsheet-ready `.csv` file anytime.
-- One-click **Reset Demo** button to seed fresh demo data for demonstrations or testing.
+<p align="center">
+  <strong>A full-stack, responsive Personal Finance and Expense Management Web Application built strictly using Python, HTML, CSS, and Vanilla JavaScript.</strong>
+</p>
 
 ---
 
-## 📁 Project Structure
+## 📌 Project Overview
+
+**SpendWise** is a lightweight, full-featured financial management dashboard designed to help individuals monitor income, track day-to-day expenditures, set monthly budget ceilings, and analyze spending habits through interactive visualizations.
+
+Developed as part of the **Decode Labs Python Programming Internship (Project 2)**, this project demonstrates clean software architecture, RESTful API design, database normalization, and modern UI/UX design without relying on bulky frontend frameworks.
+
+---
+
+## ✨ Key Features
+
+### 1. 💰 Income & Expense Tracking
+- **Two-Way Transactions**: Seamlessly record both expenses and income.
+- **Detailed Metadata**: Track Title, Amount, Category, Date, Payment Method (*Cash, Card, UPI, Bank Transfer*), and custom notes.
+- **Full CRUD Support**: Add, view, edit, and delete transactions with instant DOM updates and confirmation modals.
+
+### 2. 📊 Interactive Visual Analytics
+- **Category Doughnut Chart**: Visualizes proportion of spending across categories (*Groceries, Rent, Utilities, Dining, Travel, etc.*).
+- **Monthly Trend Chart**: Historical comparison of total monthly income vs expenditures.
+- **100% Offline Capability**: Includes bundled local chart libraries—renders charts cleanly without requiring an active internet connection.
+
+### 3. 🎯 Budget Velocity & Threshold Alerts
+- Set a custom monthly budget limit.
+- Real-time progress bar tracking monthly spend percentage.
+- **Dynamic Status Badges**:
+  - 🟢 `On Track` (< 80% spent)
+  - 🟡 `Near Limit` (80% – 100% spent)
+  - 🔴 `Over Budget` (> 100% spent)
+
+### 4. 🔍 Live Search & Multi-Level Filtering
+- **Real-Time Search**: Instant search filtering by title, note, or category keyword.
+- **Granular Filters**: Filter by transaction type (*All / Expense / Income*), category, and custom date range (*From Date – To Date*).
+- **Flexible Sorting**: Sort by date (*Newest / Oldest*) or amount (*Highest / Lowest*).
+- **Quick Reset**: One-click filter clear button.
+
+### 5. 🎨 Modern UI & Accessibility
+- Clean card-based design with fluid micro-interactions and toast notifications.
+- **Theme Switcher**: Dark Mode and Light Mode with persistent `localStorage` preference.
+- **Multi-Currency Support**: Switch between **₹ INR**, **$ USD**, **€ EUR**, **£ GBP**, **¥ JPY**, and **C$ CAD**.
+
+### 6. 📄 Data Portability & Demo Seeder
+- **Export to CSV**: Download all transactions formatted for Excel / Google Sheets in one click.
+- **Sample Data Reset**: Pre-loaded with realistic demo data for testing and immediate evaluation.
+
+---
+
+## 🏗️ Architecture & Tech Stack
 
 ```
-Project 2/
-├── app.py                  # Flask backend & REST API endpoints
-├── database.py             # SQLite helper functions, schema, and sample data seeder
-├── requirements.txt        # Python dependencies (Flask)
-├── run.bat                 # 1-click Windows launcher
-├── test_app.py             # Automated unit test suite (8 tests)
+┌─────────────────────────────────────────────────────────────┐
+│                       Client Layer                          │
+│     HTML5 Semantic Dashboard  •  CSS3 (Dark/Light Mode)     │
+│              Vanilla JavaScript (ES6+ Fetch API)            │
+└──────────────────────────────┬──────────────────────────────┘
+                               │ JSON REST API (HTTP)
+┌──────────────────────────────▼──────────────────────────────┐
+│                       Server Layer                          │
+│               Python 3.12  •  Flask Web Framework           │
+└──────────────────────────────┬──────────────────────────────┘
+                               │ Parameterized SQL
+┌──────────────────────────────▼──────────────────────────────┐
+│                      Database Layer                         │
+│                    SQLite3 (expenses.db)                    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| **Backend** | Python 3.12, Flask 3.0+ | REST API, Business logic, CSV export engine |
+| **Database** | SQLite3 | ACID-compliant, lightweight relational storage |
+| **Frontend** | HTML5, CSS3, Vanilla JS | Responsive UI, Modal handlers, Theme & Currency state |
+| **Charts** | Chart.js (Offline Bundle) | Interactive client-side canvas data visualizations |
+
+---
+
+## 📁 Repository Directory Structure
+
+```
+spendwise-expense-tracker/
+├── app.py                  # Flask server application & RESTful API routes
+├── database.py             # SQLite helper functions, schema, and sample seeder
+├── requirements.txt        # Python dependency manifest
+├── run.bat                 # Convenient one-click launcher for Windows
+├── test_app.py             # Automated unit test suite (8 test cases)
+├── .gitignore              # Git ignore rules (ignores cache & local database)
+├── README.md               # Comprehensive documentation
 ├── templates/
-│   └── index.html          # Semantic HTML5 single-page application
+│   └── index.html          # Main single-page web dashboard
 └── static/
     ├── css/
-    │   └── style.css       # Custom modern CSS (variables, dark mode, responsive grid)
+    │   └── style.css       # Clean styling, responsive layout, CSS variables
     └── js/
-        ├── chart.min.js    # Local offline Chart.js bundle
-        └── app.js          # Client-side logic, API integration, DOM rendering
+        ├── app.js          # Client-side state, API calls, DOM manipulation
+        └── chart.min.js    # Local offline Chart.js bundle
 ```
 
 ---
 
-## 🚀 How to Run the Application
+## 🚀 Quickstart Guide
 
-### Method 1: One-Click Launcher (Windows)
-Simply double-click the **`run.bat`** file in the project folder. It will automatically detect Python/Anaconda, boot the server, and display the URL.
+### Prerequisites
+- Python 3.8 or higher installed on your machine.
 
-### Method 2: Command Line
+### Installation & Execution
 
-1. Open a terminal / command prompt in this directory:
-   ```powershell
-   cd "c:\Users\alokp\Downloads\Internship\Project 2"
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/alokpatitiwari88-crypto/spendwise-expense-tracker.git
+   cd spendwise-expense-tracker
    ```
 
-2. (Optional) Install dependencies:
-   ```powershell
+2. **Install Dependencies**:
+   ```bash
    pip install -r requirements.txt
    ```
 
-3. Run the application:
-   ```powershell
-   python app.py
-   ```
-   *(Or if using Anaconda: `C:\Users\alokp\anaconda3\python.exe app.py`)*
+3. **Start the Server**:
+   - **On Windows**: Double-click `run.bat` or run:
+     ```bash
+     python app.py
+     ```
+   - **On macOS / Linux**:
+     ```bash
+     python3 app.py
+     ```
 
-4. Open your web browser and navigate to:
+4. **Access the Dashboard**:
+   Open your browser and navigate to:
    ```
    http://127.0.0.1:5000
    ```
 
 ---
 
-## 🧪 Running the Unit Tests
+## 🧪 Testing & Verification
 
-An automated test suite (`test_app.py`) is included to verify all backend routes, database CRUD operations, and calculations:
+An automated unit test suite is included in `test_app.py` covering endpoints, input validation, calculations, and data persistence.
 
-```powershell
+To execute tests:
+```bash
 python test_app.py
 ```
 
-All 8 tests test:
-- Index HTML rendering
-- Transaction retrieval
-- Transaction creation & validation (bad input rejection)
-- Transaction update
-- Transaction deletion
-- Financial summary & budget calculations
-- CSV export generation
+**Test Coverage Summary**:
+```
+test_01_index_route ....................... PASS (Serves dashboard HTML)
+test_02_get_transactions ................. PASS (Retrieves transaction list)
+test_03_create_transaction ................ PASS (Validates & saves income/expense)
+test_04_create_transaction_validation .... PASS (Rejects invalid payloads)
+test_05_update_transaction ................ PASS (Updates transaction details)
+test_06_delete_transaction ................ PASS (Removes record & returns 404)
+test_07_summary_and_budget ................ PASS (Calculates metrics & savings rate)
+test_08_csv_export ........................ PASS (Generates valid CSV file stream)
+----------------------------------------------------------------------
+Ran 8 tests in 0.186s — OK
+```
 
 ---
 
-## 🔌 REST API Reference
+## 🔌 REST API Endpoints
 
-| Method | Endpoint | Description |
+| HTTP Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/` | Serves the main UI dashboard |
-| `GET` | `/api/transactions` | Query transactions (`search`, `type`, `category`, `sort_by`, `start_date`, `end_date`) |
-| `GET` | `/api/transactions/<id>` | Fetch a single transaction |
-| `POST` | `/api/transactions` | Create a new transaction |
+| `GET` | `/` | Serves the main web dashboard |
+| `GET` | `/api/transactions` | Query transactions (supports `search`, `type`, `category`, `sort_by`, `start_date`, `end_date`) |
+| `GET` | `/api/transactions/<id>` | Fetch a single transaction by ID |
+| `POST` | `/api/transactions` | Create a new income/expense transaction |
 | `PUT` | `/api/transactions/<id>` | Update an existing transaction |
 | `DELETE` | `/api/transactions/<id>` | Delete a transaction |
-| `GET` | `/api/summary` | Aggregated analytics (income, expense, balance, savings rate, breakdown, trends) |
+| `GET` | `/api/summary` | Aggregated analytics (totals, savings rate, breakdown, trends) |
 | `GET` | `/api/budget` | Get current monthly budget target |
 | `POST` | `/api/budget` | Update monthly budget target |
-| `GET` | `/api/export/csv` | Download all transactions as `.csv` file |
-| `POST` | `/api/reset` | Reset database to initial demo transactions |
+| `GET` | `/api/export/csv` | Download all transactions as a CSV spreadsheet |
+| `POST` | `/api/reset` | Restore initial sample demo dataset |
+
+---
+
+## 👨‍💻 Author & Submission Details
+
+- **Intern**: Alok
+- **Program**: Decode Labs Python Programming Internship
+- **Assignment**: Project 2 — Personal Expense Tracker
+- **GitHub Repository**: [spendwise-expense-tracker](https://github.com/alokpatitiwari88-crypto/spendwise-expense-tracker)
