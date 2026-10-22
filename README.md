@@ -33,7 +33,7 @@ Developed as part of the **Decode Labs Python Programming Internship (Project 2)
 ### 2. 📊 Interactive Visual Analytics
 - **Category Doughnut Chart**: Visualizes proportion of spending across categories (*Groceries, Rent, Utilities, Dining, Travel, etc.*).
 - **Monthly Trend Chart**: Historical comparison of total monthly income vs expenditures.
-- **100% Offline Capability**: Includes bundled local chart libraries—renders charts cleanly without requiring an active internet connection.
+- Powered cleanly by **Chart.js CDN** with dynamic dark/light theme reactivity.
 
 ### 3. 🎯 Budget Velocity & Threshold Alerts
 - Set a custom monthly budget limit.
@@ -85,7 +85,7 @@ Developed as part of the **Decode Labs Python Programming Internship (Project 2)
 | **Backend** | Python 3.12, Flask 3.0+ | REST API, Business logic, CSV export engine |
 | **Database** | SQLite3 | ACID-compliant, lightweight relational storage |
 | **Frontend** | HTML5, CSS3, Vanilla JS | Responsive UI, Modal handlers, Theme & Currency state |
-| **Charts** | Chart.js (Offline Bundle) | Interactive client-side canvas data visualizations |
+| **Charts** | Chart.js (via CDN) | Interactive client-side canvas data visualizations |
 
 ---
 
@@ -93,19 +93,17 @@ Developed as part of the **Decode Labs Python Programming Internship (Project 2)
 
 ```
 spendwise-expense-tracker/
-├── app.py                  # Flask server application & RESTful API routes
-├── database.py             # SQLite helper functions, schema, and sample seeder
-├── requirements.txt        # Python dependency manifest
+├── app.py                  # Single Python backend (Flask server & SQLite database logic)
+├── requirements.txt        # Python dependency manifest (Flask)
 ├── .gitignore              # Git ignore rules (ignores cache & local database)
 ├── README.md               # Comprehensive documentation
 ├── templates/
-│   └── index.html          # Main single-page web dashboard
+│   └── index.html          # Main single-page web dashboard (HTML5)
 └── static/
     ├── css/
     │   └── style.css       # Clean styling, responsive layout, CSS variables
     └── js/
-        ├── app.js          # Client-side state, API calls, DOM manipulation
-        └── chart.min.js    # Local offline Chart.js bundle
+        └── app.js          # Client-side state, API calls, DOM manipulation
 ```
 
 ---
