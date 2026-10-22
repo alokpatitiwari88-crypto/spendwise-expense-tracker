@@ -19,14 +19,14 @@
 
 **SpendWise** is a lightweight, full-featured financial management dashboard designed to help individuals monitor income, track day-to-day expenditures, set monthly budget ceilings, and analyze spending habits through interactive visualizations.
 
-Developed as part of the **Decode Labs Python Programming Internship (Project 2)**, this project demonstrates clean software architecture, RESTful API design, database normalization, and modern UI/UX design without relying on bulky frontend frameworks.
+Developed as part of the **Decode Labs Python Programming Internship (Project 2)**, this project demonstrates clean software architecture, RESTful API design, database normalization, and modern UI/UX design without relying on external frontend frameworks.
 
 ---
 
 ## ✨ Key Features
 
 ### 1. 💰 Income & Expense Tracking
-- **Two-Way Transactions**: Seamlessly record both expenses and income.
+- **Two-Way Transactions**: Record both expenses and income seamlessly.
 - **Detailed Metadata**: Track Title, Amount, Category, Date, Payment Method (*Cash, Card, UPI, Bank Transfer*), and custom notes.
 - **Full CRUD Support**: Add, view, edit, and delete transactions with instant DOM updates and confirmation modals.
 
@@ -96,8 +96,6 @@ spendwise-expense-tracker/
 ├── app.py                  # Flask server application & RESTful API routes
 ├── database.py             # SQLite helper functions, schema, and sample seeder
 ├── requirements.txt        # Python dependency manifest
-├── run.bat                 # Convenient one-click launcher for Windows
-├── test_app.py             # Automated unit test suite (8 test cases)
 ├── .gitignore              # Git ignore rules (ignores cache & local database)
 ├── README.md               # Comprehensive documentation
 ├── templates/
@@ -131,45 +129,16 @@ spendwise-expense-tracker/
    ```
 
 3. **Start the Server**:
-   - **On Windows**: Double-click `run.bat` or run:
-     ```bash
-     python app.py
-     ```
-   - **On macOS / Linux**:
-     ```bash
-     python3 app.py
-     ```
+   ```bash
+   python app.py
+   ```
+   *(Or on macOS/Linux: `python3 app.py`)*
 
 4. **Access the Dashboard**:
    Open your browser and navigate to:
    ```
    http://127.0.0.1:5000
    ```
-
----
-
-## 🧪 Testing & Verification
-
-An automated unit test suite is included in `test_app.py` covering endpoints, input validation, calculations, and data persistence.
-
-To execute tests:
-```bash
-python test_app.py
-```
-
-**Test Coverage Summary**:
-```
-test_01_index_route ....................... PASS (Serves dashboard HTML)
-test_02_get_transactions ................. PASS (Retrieves transaction list)
-test_03_create_transaction ................ PASS (Validates & saves income/expense)
-test_04_create_transaction_validation .... PASS (Rejects invalid payloads)
-test_05_update_transaction ................ PASS (Updates transaction details)
-test_06_delete_transaction ................ PASS (Removes record & returns 404)
-test_07_summary_and_budget ................ PASS (Calculates metrics & savings rate)
-test_08_csv_export ........................ PASS (Generates valid CSV file stream)
-----------------------------------------------------------------------
-Ran 8 tests in 0.186s — OK
-```
 
 ---
 
